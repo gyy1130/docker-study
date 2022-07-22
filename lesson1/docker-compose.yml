@@ -1,0 +1,11 @@
+version: '3.5'
+
+services:
+  centos:
+    image: centos
+    volumes:
+      - ./zombie:/zombie
+      - ./init:/init
+    tty: true
+    entrypoint: /init/entrypoint.sh
+    # command: ["/zombie/s"]
