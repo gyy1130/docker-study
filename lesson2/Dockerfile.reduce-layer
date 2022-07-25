@@ -1,0 +1,7 @@
+FROM shareinto/php:fat as builder
+RUN rm /var/www/html/data.img
+
+FROM scratch
+COPY --from=builder / /
+
+CMD ["php", "-S", "0.0.0.0:80", "/hello1.php"]
